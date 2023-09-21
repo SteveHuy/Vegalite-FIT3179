@@ -25,7 +25,7 @@
 "24","Denmark",597
 "25","Ecuador",599
 "26","Egypt",788
-"27","England",NA
+"27","England",521
 "28","Estonia",526
 "29","Fiji",232
 "30","Finland",575
@@ -35,7 +35,7 @@
 "34","Greece",546
 "35","Guatemala",394
 "36","Guyana",520
-"37","Hong Kong",NA
+"37","Hong Kong",458
 "38","Hungary",552
 "39","Iceland",621
 "40","India",468
@@ -60,7 +60,7 @@
 "59","Mexico",465
 "60","Moldova",540
 "61","Mongolia",652
-"62","N.Ireland",NA
+"62","N.Ireland",404
 "63","Namibia",278
 "64","Nauru",475
 "65","Netherlands",537
@@ -71,7 +71,7 @@
 "70","Norway",568
 "71","Oman",648
 "72","Pakistan",455
-"73","Palestine",NA
+"73","Palestine",570
 "74","Papua New Guinea",384
 "75","Paraguay",735
 "76","Peru",468
@@ -83,7 +83,7 @@
 "82","Russia",533
 "83","Samoa",458
 "84","Saudi Arabia",812
-"85","Scotland",NA
+"85","Scotland",476
 "86","Serbia",500
 "87","Singapore",402
 "88","Slovakia",564
@@ -98,21 +98,21 @@
 "97","Taiwan",540
 "98","Tajikistan",422
 "99","Thailand",436
-"100","Trinidad and Tobago",NA
+"100","Trinidad and Tobago",511
 "101","Tunisia",788
 "102","Turkey",464
 "103","Turkmenistan",760
-"104","UAE",NA
-"105","UK",NA
-"106","US Virgin Islands",NA
-"107","USSR",NA
+"104","UAE",505
+"105","UK",520
+"106","US Virgin Islands",514
+"107","USSR",625
 "108","Ukraine",530
-"109","United States of America",NA
+"109","United States of America",495
 "110","Uruguay",605
 "111","Uzbekistan",448
 "112","Venezuela",578
-"113","Wales",NA
-"114","West Germany",NA
+"113","Wales",573
+"114","West Germany",605
 "115","Zimbabwe",402
 "116","Albania",NA
 "117","American Samoa",NA
