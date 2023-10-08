@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600,
+  "height": 400,
+  "title": "Max Squat, Bench and Deadlift based on Age",
+  "data": {
+    "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+  },
+  "params": [
+    {
+      
+        "name":"Equipment_Selection",
+          "bind": {
+            "input": "select",
+            "options": [null, "Multi-ply", "Raw", "Single-ply", "Unlimited", "Wraps"],
+            "labels": ["Show All", "Multi-ply", "Raw", "Single-ply", "Unlimited", "Wraps"],
+            "name": "Equipment Selection: "
+          }
+        }
+      ],
+    "transform":[
+    {
+      "filter": "Equipment_Selection == null || datum.Equipment == Equipment_Selection"
+    }
+    
+  ],
+  "layer": [
+    {
+      "mark": "bar",
+      "encoding": {
+        "x": {
+          "field": "Age",
+          "type": "quantitative",
+          "title": "Age",
+          "bin": {"step": 5}
+        },
+        "y": {
+          "aggregate": "max", 
+          "field": "TotalKg",
+          "type": "quantitative",
+          "title": "Highest Total Kg"
+        },
+        "tooltip": [
+          {"field": "Name", "type": "nominal", "title": "Name"},
+          {"field": "Age", "type": "ordinal", "title": "Age Range"},
+          {"field": "TotalKg", "type": "quantitative", "title": "Max Total Kg"}
+        ]
+      }
+    },
+ {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dx": 300,
+        "dy": -190, 
+        "fontSize": 12,
+        "fontStyle": "italic"
+      },
+  "transform": [{
+    "aggregate": [{
+      "op": "max",
+      "field": "TotalKg",
+      "as": "max_lift"
+    }],
+    "groupby": ["Equipment_Selection"]
+  },
+      {
+        "calculate": "'The maximum lift for the equipment ' + Equipment_Selection + ' is ' +  datum.max_lift", "as": "lift_text"}
+    
+  ],
+  "encoding": 
+    {
+      
+      "text": {"field": "lift_text", "type": "nominal"}
+    }
+
+      }
+    
+  ]
+}
