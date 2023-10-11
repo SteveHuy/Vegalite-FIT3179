@@ -66,7 +66,7 @@
     "groupby": ["Equipment_Selection"]
   },
       {
-        "calculate": "'The maximum lift for the equipment ' + Equipment_Selection + ' is ' +  datum.max_lift", "as": "lift_text"}
+        "calculate": "'The maximum lift for the equipment ' + Equipment_Selection + ' is ' +  datum.max_lift + 'kg' ", "as": "lift_text"}
     
   ],
   "encoding": 
