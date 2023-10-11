@@ -1,0 +1,61 @@
+body *{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  font-weight: 900;
+  text-align: center;
+}
+h2 {
+  text-align: center;
+}
+
+.paragraph1,
+p {
+  font-size:18px;
+  padding-right: 10px;
+  text-align: justify;
+}
+.paragraph2,
+p{
+  font-size:18px;
+  text-align: justify;
+  padding-left: 10px;
+
+}
+body {
+  background-color: lightgray;
+}
+
+.page {
+  width: 950px;
+  background-color: white;
+  margin: auto;
+  padding: 50px;
+  padding-top: 35px;
+}
+
+.vis-container {
+  width: 100%;
+}
+
+.description h2,
+h1 {
+  margin-top: 0px;
+}
+
+.description-right {
+  padding-left: 20px;
+}
+
+.description-left {
+  padding-right: 20px;
+}
+
+.pure-g {
+  margin-bottom: 20px;
+}
+
+.small-font {
+  font-size: 14px;
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 300,
+  "title": "Max Squat, Bench and Deadlift based on Age",
+  "data": {
+    "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+  },
+  "transform": [
+    {"filter": "datum.year == 2000"},
+    {"calculate": "datum.Tested == 2 ? 'Yes' : 'no'", "as": "tested_check"}],
+  "spacing": 0,
+  "hconcat": [{
+    "transform": [{
+      "filter": {"field": "tested_check", "equal": "Yes"}
+    }],
+    "title": "Yes",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Age", "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "sum", "field": "people",
+        "title": "population",
+        "axis": {"format": "s"},
+        "sort": "descending"
+      },
+      "color": {
+        "field": "tested_check",
+        "scale": {"range": ["#675193", "#ca8861"]},
+        "legend": null
+      }
+    }
+  }, {
+    "width": 20,
+    "view": {"stroke": null},
+    "mark": {
+      "type": "text",
+      "align": "center"
+    },
+    "encoding": {
+      "y": {"field": "Age", "type": "ordinal", "axis": null, "sort": "descending"},
+      "text": {"field": "Age", "type": "quantitative"}
+    }
+  }, {
+    "transform": [{
+      "filter": {"field": "tested_check", "equal": "no"}
+    }],
+    "title": "no",
+    "mark": "bar",
+    "encoding": {
+      "y": {
+        "field": "Age", "title": null,
+        "axis": null, "sort": "descending"
+      },
+      "x": {
+        "aggregate": "average", "field": "TotalKg",
+        "title": "population",
+        "axis": {"format": "s"}
+      },
+      "color": {
+        "field": "tested_check",
+        "legend": null
+      }
+    }
+  }],
+  "config": {
+    "view": {"stroke": null},
+    "axis": {"grid": false}
+  }
+}
