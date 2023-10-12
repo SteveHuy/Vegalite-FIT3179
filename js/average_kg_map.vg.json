@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "Average Total Kg for Powerlifting Events Across the World Grouped by Country (1964 - 2023)",
   "width": 500,
   "height": 300,
   "data": {

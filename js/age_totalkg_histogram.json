@@ -2,27 +2,38 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 300,
-  "title": "Max Squat, Bench and Deadlift based on Age",
   "data": {
     "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
   },
   "params": [
     {
-      
-        "name":"Equipment_Selection",
-          "bind": {
-            "input": "select",
-            "options": [null, "Multi-ply", "Raw", "Single-ply", "Unlimited", "Wraps"],
-            "labels": ["Show All", "Multi-ply", "Raw", "Single-ply", "Unlimited", "Wraps"],
-            "name": "Equipment Selection: "
-          }
-        }
-      ],
-    "transform":[
+      "name": "Equipment_Selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Multi-ply",
+          "Raw",
+          "Single-ply",
+          "Unlimited",
+          "Wraps"
+        ],
+        "labels": [
+          "Show All",
+          "Multi-ply",
+          "Raw",
+          "Single-ply",
+          "Unlimited",
+          "Wraps"
+        ],
+        "name": "Equipment Selection: "
+      }
+    }
+  ],
+  "transform": [
     {
       "filter": "Equipment_Selection == null || datum.Equipment == Equipment_Selection"
     }
-    
   ],
   "layer": [
     {
@@ -32,50 +43,50 @@
           "field": "Age",
           "type": "quantitative",
           "title": "Age",
-          "bin": {"step": 5}
+          "bin": {"step": 5},
+          "scale": {"domain": [10, 95]}
+
         },
         "y": {
-          "aggregate": "max", 
+          "aggregate": "max",
           "field": "TotalKg",
           "type": "quantitative",
-          "title": "Highest Total Kg"
+          "title": "Highest Total Kg",
+          "scale": {"domain": [0, 1400]}
         },
         "tooltip": [
           {"field": "Name", "type": "nominal", "title": "Name"},
           {"field": "Age", "type": "ordinal", "title": "Age Range"},
-          {"field": "TotalKg", "type": "quantitative", "title": "Max Total Kg"}
+          {
+            "aggregate": "max",
+            "field": "TotalKg",
+            "type": "quantitative",
+            "title": "Max Total Kg"
+          }
         ]
       }
     },
- {
+    {
       "mark": {
         "type": "text",
         "align": "right",
         "baseline": "top",
         "dx": 240,
-        "dy": -140, 
+        "dy": -140,
         "fontSize": 12,
         "fontStyle": "italic"
       },
-  "transform": [{
-    "aggregate": [{
-      "op": "max",
-      "field": "TotalKg",
-      "as": "max_lift"
-    }],
-    "groupby": ["Equipment_Selection"]
-  },
-      {
-        "calculate": "'The maximum lift for the equipment ' + Equipment_Selection + ' is ' +  datum.max_lift + ' kg' ", "as": "lift_text"}
-    
-  ],
-  "encoding": 
-    {
-      
-      "text": {"field": "lift_text", "type": "nominal"}
+      "transform": [
+        {
+          "aggregate": [{"op": "max", "field": "TotalKg", "as": "max_lift"}],
+          "groupby": ["Equipment_Selection"]
+        },
+        {
+          "calculate": "'The maximum lift for the equipment ' + Equipment_Selection + ' is ' +  datum.max_lift + ' kg' ",
+          "as": "lift_text"
+        }
+      ],
+      "encoding": {"text": {"field": "lift_text", "type": "nominal"}}
     }
-
-      }
-    
   ]
-}
+    }
