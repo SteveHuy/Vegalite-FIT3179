@@ -2,6 +2,9 @@
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "width": 500,
     "height": 300,
+    "config": {
+      "background": "#C9EDDC" 
+    },
     "data": {
       "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
     },
@@ -14,15 +17,7 @@
             "aggregate": "count",
             "type": "quantitative",
             "title": "Count of Powerlifters Overtime"
-          },
-          "tooltip": [
-            {"field": "Date", "type": "temporal", "title": "Year"},
-            {
-              "field": "count",
-              "type": "quantitative",
-              "title": "Count of Powerlifters"
-            }
-          ]
+          }
         }
       },
       {

@@ -2,6 +2,9 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 300,
+  "config": {
+    "background": "#C9EDDC" 
+  },
   "data": {
     "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Map.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
@@ -40,7 +43,7 @@
           "scale": {
             "type": "threshold",
             "domain": [400, 500, 600, 700, 800],
-            "range": ["#f0f9e8", "#bae4bc", "#7bccc4", "#43a2ca", "#0868ac"]
+            "range": ["#f1eef6", "#d7b5d8", "#df65b0", "#dd1c77", "#980043"]
           }
         },
         "tooltip": [

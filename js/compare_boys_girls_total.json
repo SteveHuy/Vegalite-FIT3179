@@ -1,18 +1,34 @@
 {
     "width": 500,
     "height": 300,
+    "config": {
+        "background": "#C9EDDC" 
+      },
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "data": {
       "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
     },
     "mark": {"type": "line", "point": true},
+    "transform": [
+      {
+        "bin": true,
+        "field": "BodyweightKg",
+        "as": "BodyweightBin"
+      },
+      {
+        "aggregate": [
+          {"op": "average", "field": "TotalKg", "as": "Average Total Kg"}
+        ],
+        "groupby": ["BodyweightBin", "Sex"]
+      }
+    ],
     "encoding": {
-      "x": {"bin": true, "field": "BodyweightKg", "type": "ordinal", "title":"Body Weight in Kg"},
-      "y": {"aggregate": "average", "field": "TotalKg", "type": "quantitative"},
+      "x": {"field": "BodyweightBin", "type": "ordinal", "title": "Body Weight in Kg"},
+      "y": {"field": "Average Total Kg", "type": "quantitative"},
       "color": {"field": "Sex", "type": "nominal"},
       "tooltip": [
-        {"field": "bin_maxbins_10_BodyweightKg_range", "title": "Bodyweight (Bin)"},
-        {"field": "average_TotalKg", "title": "Average TotalKg"},
+        {"field": "BodyweightBin", "title": "Bodyweight (Bin)"},
+        {"field": "Average Total Kg", "title": "Average TotalKg"},
         {"field": "Sex", "title": "Sex"}
       ]
     }

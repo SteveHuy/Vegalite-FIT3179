@@ -4,7 +4,15 @@ body *{
 
 h1 {
   font-weight: 1200;
+  font-size: 50px;
   text-align: center;
+}
+
+.last-container {
+  background-color: #C9EDDC; 
+  border: 1px solid #999; 
+  border-radius: 10px; 
+
 }
 h2 {
   text-align: center;
@@ -24,17 +32,25 @@ p{
 
 }
 body {
-  background-color: lightgray;
+  background-color: #6A706E;
 }
 
 .page {
   width: 950px;
-  background-color: white;
   margin: auto;
   padding: 50px;
   padding-top: 35px;
 }
+.rounded-container {
+  background-color: #C9EDDC; 
+  border: 1px solid #999; 
+  border-radius: 10px; 
+  padding: 20px; 
+}
 
+.spacing_container{
+  height: 20px;
+}
 .vis-container {
   width: 100%;
 }
@@ -58,4 +74,8 @@ h1 {
 
 .small-font {
   font-size: 14px;
+}
+
+.center_text{
+  text-align: center;
 }

@@ -4,14 +4,15 @@
     "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
   },
   "transform": [
-    {"calculate": "datum.Tested == 'Yes' ? 'Yes' : 'no'", "as": "tested_check"}
+    {"calculate": "datum.Sex == 'F' ? 'F' : 'M'", "as": "tested_check"}
   ],
   "spacing": 0,
+  "background": "#C9EDDC",
   "hconcat": [
     {
-      "transform": [{"filter": {"field": "tested_check", "equal": "Yes"}}],
-      "width": 300,
-      "title": "Yes",
+      "transform": [{"filter": {"field": "tested_check", "equal": "F"}}],
+      "width": 270,
+      "title": "Female",
       "mark": "bar",
       "encoding": {
         "y": {
@@ -21,11 +22,13 @@
           "sort": "descending"
         },
         "x": {
-          "aggregate": "average",
-          "field": "TotalKg",
-          "title": "Total Average Kg",
+          "aggregate": "count",
+          "field": "Name",
+          "title": "Count",
           "axis": {"format": "s"},
-          "sort": "descending"
+          "sort": "descending",
+                     "scale": {"domain": [0, 5000]}
+
         },
         "color": {
           "field": "tested_check",
@@ -35,9 +38,9 @@
         "tooltip": [
           {"field": "AgeClass", "title": "Age Bracket"},
           {
-            "aggregate": "average",
+            "aggregate": "count",
             "field": "TotalKg",
-            "title": "Total Average Kg"
+            "title": "Count"
           }
         ]
       }
@@ -56,9 +59,9 @@
       }
     },
     {
-      "transform": [{"filter": {"field": "tested_check", "equal": "no"}}],
-      "title": "No",
-      "width": 300,
+      "transform": [{"filter": {"field": "tested_check", "equal": "M"}}],
+      "title": "Male",
+      "width": 270,
       "mark": "bar",
       "encoding": {
         "y": {
@@ -68,18 +71,18 @@
           "sort": "descending"
         },
         "x": {
-          "aggregate": "average",
-          "field": "TotalKg",
-          "title": "Total Average Kg",
+          "aggregate": "count",
+          "field": "Name",
+          "title": "Count",
           "axis": {"format": "s"}
         },
         "color": {"field": "tested_check", "legend": null},
         "tooltip": [
           {"field": "AgeClass", "title": "Age Bracket"},
           {
-            "aggregate": "average",
-            "field": "TotalKg",
-            "title": "Total Average Kg"
+            "aggregate": "count",
+            "field": "Name",
+            "title": "Count"
           }
         ]
       }

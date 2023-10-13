@@ -1,47 +1,44 @@
 {
-    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "width": 500,
-    "height": 300,
-    "data": {
-      "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 300,
+  "config": {
+    "background": "#C9EDDC" 
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+  },
+  "transform": [
+    {
+      "joinaggregate": [{"op": "count", "as": "count"}],
+      "groupby": ["Age", "Tested"]
+    }
+  ],
+  "layer": [
+    {
+      "mark": "area",
+      "encoding": {
+        "x": {"field": "Age", "title": "Age", "type": "quantitative"},
+        "y": {"aggregate": "count", "type": "quantitative", "title": "Count"},
+        "color": {"field": "Tested", "scale": {"scheme": "category10"}},
+        "tooltip": [
+          {"field": "Age", "type": "quantitative", "title": "Age"},
+          {"field": "Tested", "type": "nominal", "title": "Sex"},
+          {"field": "count", "type": "quantitative", "title": "Count"}
+        ]
+      }
     },
-    "transform": [
-      {
-        "joinaggregate": [{"op": "count", "as": "count"}],
-        "groupby": ["Age", "Sex"]
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dx": 240,
+        "dy": -140,
+        "fontSize": 10,
+        "fontStyle": "italic"
       }
-    ],
-    "layer": [
-      {
-        "mark": "area",
-        "encoding": {
-          "x": {"field": "Age", "title": "Age", "type": "quantitative"},
-          "y": {"aggregate": "count", "type": "quantitative", "title": "Count"},
-          "color": {"field": "Sex", "scale": {"scheme": "category10"}},
-          "tooltip": [
-            {"field": "Age", "type": "quantitative", "title": "Age"},
-            {"field": "Sex", "type": "nominal", "title": "Sex"},
-            {"field": "count", "type": "quantitative", "title": "Count"}
-          ]
-        }
-      },
-      {
-        "mark": {
-          "type": "text",
-          "align": "right",
-          "baseline": "top",
-          "dx": 240,
-          "dy": -140,
-          "fontSize": 10,
-          "fontStyle": "italic"
-        },
-        "transform": [
-          {
-            "calculate": "'The greatest number of powerlifters is at the age of 17.5 with 601 lifters with 165 girls and 436 boys' ",
-            "as": "lift_text"
-          }
-        ],
-        "encoding": {"text": {"field": "lift_text", "type": "nominal"}}
-      }
-    ]
-  }
+      
+    }
+  ]
+}
