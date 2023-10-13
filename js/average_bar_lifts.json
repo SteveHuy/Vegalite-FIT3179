@@ -1,0 +1,19 @@
+{
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+        "width": 500,
+    "height": 300,
+    "data": {
+      "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/best%20squat%2C%20bench%20and%20deadlift.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+      "x": {"field": "type", "title": "Lift Type"},
+      "y": {"field": "Average", "type": "quantitative", "title": "Average Kg"},
+      "xOffset": {"field": "Sex"},
+      "color": {"field": "Sex"},
+      "tooltip": [
+        {"field": "Sex", "title": "Sex"},
+        {"field": "Average", "title": "Average Kg"}
+      ]
+    }
+  }

@@ -37,10 +37,6 @@
         },
         "transform": [
           {
-            "aggregate": [{"op": "max", "field": "TotalKg", "as": "max_lift"}],
-            "groupby": ["Equipment_Selection"]
-          },
-          {
             "calculate": "'The greatest number of powerlifters is at the age of 17.5 with 601 lifters with 165 girls and 436 boys' ",
             "as": "lift_text"
           }

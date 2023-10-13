@@ -1,0 +1,38 @@
+{
+    "width": 500,
+  "height": 300,
+"$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+"data": {
+  "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+},
+"layer": [
+  {
+    "mark": {"type": "arc", "tooltip": true},
+    "encoding": {
+      "theta": {"aggregate": "count", "field": "X", "type": "quantitative"},
+      "color": {"field": "Equipment", "type": "nominal",
+                "scale": {
+          "range": ["#ca0020", "#f4a582", "#92c5de", "#f7f7f7","#0571b0"]
+        }}
+    }
+  },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "top",
+        "dx": 320,
+        "dy": 140,
+        "fontSize": 10,
+        "fontStyle": "italic"
+      },
+      "transform": [
+        {
+          "calculate": "'Unlimited is such a small percentage only occurring 16 times' ",
+          "as": "lift_text"
+        }
+      ],
+      "encoding": {"text": {"field": "lift_text", "type": "nominal"}}
+    }
+]
+}
