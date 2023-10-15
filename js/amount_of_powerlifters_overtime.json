@@ -17,7 +17,8 @@
             "aggregate": "count",
             "type": "quantitative",
             "title": "Count of Powerlifters Overtime"
-          }
+          },
+          "color":{"value":"#85810B"}
         }
       },
       {

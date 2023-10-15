@@ -6,6 +6,8 @@ h1 {
   font-weight: 1200;
   font-size: 50px;
   text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+
 }
 
 .last-container {
@@ -16,6 +18,8 @@ h1 {
 }
 h2 {
   text-align: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size:30px;
 }
 
 .paragraph1,

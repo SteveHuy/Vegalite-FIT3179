@@ -32,7 +32,7 @@
         },
         "color": {
           "field": "tested_check",
-          "scale": {"range": ["#675193", "#ca8861"]},
+          "scale": {"range": ["#0A27FF", "#ED8607"]},
           "legend": null
         },
         "tooltip": [

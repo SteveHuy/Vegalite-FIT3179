@@ -1,0 +1,54 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+  "height": 300,
+  "config": {
+    "background": "#C9EDDC" 
+  },
+    "data": {
+      "url": "https://raw.githubusercontent.com/SteveHuy/Vegalite-FIT3179/main/data/Minimised%20Powerlifting%20Data.csv"
+    },
+    "params": [
+      {
+        "name": "bodyweightrange",
+        "value": 40,
+        "bind": {
+          "input": "range",
+          "min": 20,
+          "max": 250,
+          "step": 1,
+          "name": "Body Weight Range: "
+        }
+      }
+    ],
+    "transform": [{"filter": "datum.BodyweightKg > bodyweightrange"}],
+    "layer": [
+      {
+        "mark": "point",
+        "encoding": {
+          "x": {
+            "field": "Date",
+            "type": "temporal",
+            "title": "Date",
+            "scale": {"domain": ["1965", "2023"]}
+          },
+          "y": {
+            "field": "TotalKg",
+            "type": "quantitative",
+            "title": "Total Kg",
+            "scale": {"domain": [0, 1400]}
+          },
+          "color": {"value": "#C9A0DC"},
+          "tooltip": [
+            {"field": "Date", "type": "temporal"},
+            {"aggregate": "average", "field": "TotalKg", "type": "quantitative"},
+            {
+              "aggregate": "average",
+              "field": "BodyweightKg",
+              "type": "quantitative"
+            }
+          ]
+        }
+      }
+    ]
+  }

@@ -12,7 +12,7 @@
     "encoding": {
       "x": {"field": "type", "title": "Lift Type", "type": "ordinal", "axis": {"labelAngle": 0}},
       "y": {"field": "Average", "type": "quantitative", "title": "Average Kg"},
-      "color": {"field": "Sex", "type": "nominal"},
+      "color": {"field": "Sex", "type": "nominal", "scale": {"range": ["#0A27FF", "#ED8607"]}},
       "xOffset": {"field": "Sex", "type": "nominal"},
       "tooltip": [
         {"field": "Sex", "title": "Sex"},

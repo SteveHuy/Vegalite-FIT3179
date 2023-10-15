@@ -25,7 +25,7 @@
     "encoding": {
       "x": {"field": "BodyweightBin", "type": "ordinal", "title": "Body Weight in Kg"},
       "y": {"field": "Average Total Kg", "type": "quantitative"},
-      "color": {"field": "Sex", "type": "nominal"},
+      "color": {"field": "Sex", "type": "nominal", "scale": {"range": ["#0A27FF", "#ED8607"]}},
       "tooltip": [
         {"field": "BodyweightBin", "title": "Bodyweight (Bin)"},
         {"field": "Average Total Kg", "title": "Average TotalKg"},
